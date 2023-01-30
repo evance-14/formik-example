@@ -38,8 +38,9 @@ function YoutubeForm() {
         validate
     })
 
-     console.log('Form errors',formik.errors)
+     //console.log('Form errors',formik.errors)
      //console.log('Form data',formik.values)
+     console.log('Visited fields',formik.touched)
   return (
     <div>
       <form onSubmit={formik.handleSubmit}>
@@ -49,7 +50,8 @@ function YoutubeForm() {
        type='text'
        id='name'
        name='name' 
-       onChange={formik.handleChange} 
+       onChange={formik.handleChange}
+       onBlur ={formik.handleBlur} 
        value={formik.values.name}
        />
       {/*we want to display error messages if exists with use of conditional rendering*/}
@@ -63,6 +65,7 @@ function YoutubeForm() {
        id='email' 
        name='email' 
        onChange={formik.handleChange} 
+       onBlur ={formik.handleBlur} 
        value={formik.values.email} 
        />
        {formik.errors.email ? <div className='error'>{formik.errors.email}</div> :null}
@@ -75,6 +78,7 @@ function YoutubeForm() {
        id='channel' 
        name='channel'  
        onChange={formik.handleChange} 
+       onBlur ={formik.handleBlur} 
        value={formik.values.channel}
        />
        {formik.errors.channel ? <div className='error'>{formik.errors.channel}</div> :null}
